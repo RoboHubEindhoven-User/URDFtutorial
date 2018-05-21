@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro"
+       name="ur3" >
+
+  <!-- world -->
+  <link name="world" />
+	 
+  <!-- common stuff -->
+  <xacro:include filename="$(find ur_description)/urdf/common.gazebo.xacro" />
+
+  <!-- ur3 -->
+
+  <xacro:include filename="$(find ur3_with_gripper_ur_moveit_config)/urdf/arm.urdf" />
+  <xacro:ur3_robot parent="world" prefix="" joint_limited="false">
+	<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </xacro:ur3_robot>
+
+  <!-- gripper -->
+  <xacro:include filename="$(find ur3_with_gripper_ur_moveit_config)/urdf/gripper.urdf" />
+  <xacro:gripper_v5 parent="ee_link" >
+	<origin xyz="0.055 0.0 0.015" rpy="0 0 1.5708" />
+  </xacro:gripper_v5> 
+
+</robot>
