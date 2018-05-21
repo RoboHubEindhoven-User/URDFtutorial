@@ -11,11 +11,8 @@ For this project it is assumed you use Ubuntu 16.04 with ROS Kinetic
 
 To install ROS Kinetic visit [this](http://wiki.ros.org/kinetic/Installation/Ubuntu) website.
 
-To install Moveit 
+To install Moveit visit [this](http://moveit.ros.org/install/) website.
 
-```
-Give examples
-```
 
 ### Installing
 
