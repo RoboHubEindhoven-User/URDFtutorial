@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro"
+       name="ur3" >
+
+  <!-- world -->
+  <link name="world" />
+	 
+  <!-- common stuff -->
+  <xacro:include filename="$(find ur_description)/urdf/common.gazebo.xacro" />
+
+  <!-- ur3 -->
+
+  <xacro:include filename="$(find urdf_tutorial_adding)/urdf/arm.urdf" />
+  <xacro:ur3_robot parent="world" prefix="" joint_limited="false">
+	<origin xyz="0.0 0.0 0.380" rpy="0.0 0.0 0.0" />
+  </xacro:ur3_robot>
+
+  <!-- gripper -->
+  <xacro:include filename="$(find urdf_tutorial_adding)/urdf/gripper.urdf" />
+  <xacro:gripper_v5 parent="ee_link" >
+	<origin xyz="0.055 0.0 0.015" rpy="0 0 1.5708" />
+  </xacro:gripper_v5> 
+
+  <!-- base -->
+  <xacro:include filename="$(find urdf_tutorial_adding)/urdf/base.urdf" />
+  <xacro:base_ur3 parent="base_link" >
+	<origin xyz="0.55 -0.9  -0.38" rpy="${1.5708} 0 ${(1.5708/2) * 3} " />
+  </xacro:base_ur3> 
+
+</robot>

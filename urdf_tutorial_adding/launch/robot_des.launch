@@ -1,0 +1,14 @@
+<launch>
+<!-- Get the URDF loaded into the robot_description -->
+<param name="robot_description" command="$(find xacro)/xacro '$(find urdf_tutorial_adding)/urdf/arm_with_gripper.urdf.xacro'" />
+
+<!-- Start the robot/joint state publisher -->
+<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+
+<!-- Start the rviz node for visualization -->
+<node name="rviz" pkg="rviz" type="rviz" />
+
+ 
+
+</launch> 
